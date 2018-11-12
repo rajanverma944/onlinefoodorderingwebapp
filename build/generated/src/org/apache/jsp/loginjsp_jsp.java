@@ -32,7 +32,7 @@ public final class loginjsp_jsp extends org.apache.jasper.runtime.HttpJspBase
     PageContext _jspx_page_context = null;
 
     try {
-      response.setContentType("text/html;charset=UTF-8");
+      response.setContentType("text/html");
       pageContext = _jspxFactory.getPageContext(this, request, response,
       			null, true, 8192, true);
       _jspx_page_context = pageContext;
@@ -46,10 +46,7 @@ public final class loginjsp_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("\n");
       out.write("\n");
-      out.write("<!DOCTYPE html>\n");
       out.write("\n");
-      out.write("\n");
-      out.write("<!DOCTYPE html>\n");
       out.write("<html>\n");
       out.write("    <head>\n");
       out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n");
@@ -59,6 +56,8 @@ public final class loginjsp_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        \n");
       out.write("        ");
  
+             try
+           {   
             String user=request.getParameter("uname");
             String pass=request.getParameter("psw");
             String url="jdbc:mysql://localhost:3306/yollo";
@@ -78,10 +77,22 @@ public final class loginjsp_jsp extends org.apache.jasper.runtime.HttpJspBase
           {
          out.println("login successfull");
           }
+          else 
+          {
+              out.println("please try again with valid credentials");
       }
-    
+      }
+            }
+           }
+              catch(Exception e)
+        {
+            out.println("got an exception");
+            out.println(e.getMessage());
+        }
         
       out.write("\n");
+      out.write("    \n");
+      out.write("       \n");
       out.write("    </body>\n");
       out.write("</html>");
     } catch (Throwable t) {

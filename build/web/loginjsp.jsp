@@ -1,14 +1,7 @@
-<%-- 
-    Document   : loginjsp
-    Created on : 12 Nov, 2018, 8:05:28 AM
-    Author     : RAJAN
---%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+<%@page contentType="text/html"%>
 <%@page import="java.util.*"%>
 <%@page import="java.sql.*"%>
-<!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -17,6 +10,7 @@
     <body>
         
         <% 
+           
             String user=request.getParameter("uname");
             String pass=request.getParameter("psw");
             String url="jdbc:mysql://localhost:3306/yollo";
@@ -36,11 +30,16 @@
           {
          out.println("login successfull");
           }
-          else 
-          {
-              out.println("please try again with valid credentials");
       }
-    
+      else
+      {
+        out.println("please try again with valid credentials");  
+            }
+            }
         %>
+        <br>
+        <br>
+        <p><a href="indexpage.html">please try again with valid credentials</a></p>
+       <a href="register.html" style="text-decoration:none; margin-top:26px;">SIGN UP FOR AN ACCOUNT</a>
     </body>
 </html>

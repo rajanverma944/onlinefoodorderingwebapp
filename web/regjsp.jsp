@@ -1,12 +1,5 @@
-<%-- 
-    Document   : regjsp
-    Created on : 12 Nov, 2018, 2:00:50 PM
-    Author     : RAJAN
---%>
 
-
-
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html"%>
 <%@page import="java.util.*"%>
 <%@page import="java.lang.*"%>
 <%@page import="java.sql.*"%>
@@ -18,20 +11,18 @@
     </head>
     <body>
         <% 
-            String uname=request.getParameter("txtFName");
-            String pass=request.getParameter("txtpassword");
+            String uname=request.getParameter("uname");
+            String pass=request.getParameter("psw");
             String name=(String)session.getAttribute("txtFName");
             String email=(String)session.getAttribute("txtEmail");
             String password=(String)session.getAttribute("txtpassword");
             String  mn=(String)session.getAttribute("num");
             int mnumber=Integer.parseInt("mn");
            
-             try
-           {   
             String url="jdbc:mysql://localhost:3306/yollo";
             Class.forName("com.mysql.jdbc.Driver");
             Connection conn =DriverManager.getConnection(url,"root","");
-            String query="insert into userdetail values('"+name+"',"+email+",'"+password+"',"+mnumber+"')";
+            String query="insert into userdetail values('"+uname+"','"+email+"','"+password+"')";
             out.println(query);
             Statement st=conn.createStatement();
             int q=st.executeUpdate(query);
@@ -43,15 +34,8 @@
             {
                out.println("row has not been inserted");
             }
-            st.close();
-            
-        }
+            st.close(); 
         
-        catch(Exception e)
-        {
-            out.println("got an exception");
-            out.println(e.getMessage());
-        }
         %>
     </body>
 </html>
