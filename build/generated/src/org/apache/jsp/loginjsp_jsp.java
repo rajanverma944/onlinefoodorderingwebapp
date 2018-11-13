@@ -56,8 +56,6 @@ public final class loginjsp_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        \n");
       out.write("        ");
  
-             try
-           {   
             String user=request.getParameter("uname");
             String pass=request.getParameter("psw");
             String url="jdbc:mysql://localhost:3306/yollo";
@@ -77,22 +75,19 @@ public final class loginjsp_jsp extends org.apache.jasper.runtime.HttpJspBase
           {
          out.println("login successfull");
           }
-          else 
-          {
-              out.println("please try again with valid credentials");
+          break;
       }
-      }
+      else
+      {
+        out.println("please try again with valid credentials");  
             }
-           }
-              catch(Exception e)
-        {
-            out.println("got an exception");
-            out.println(e.getMessage());
-        }
+            }
         
       out.write("\n");
-      out.write("    \n");
-      out.write("       \n");
+      out.write("        <br>\n");
+      out.write("        <br>\n");
+      out.write("        <p><a href=\"indexpage.html\">click to go to the home page</a></p>\n");
+      out.write("       <a href=\"register.html\" style=\"text-decoration:none; margin-top:26px;\">SIGN UP FOR AN ACCOUNT</a>\n");
       out.write("    </body>\n");
       out.write("</html>");
     } catch (Throwable t) {

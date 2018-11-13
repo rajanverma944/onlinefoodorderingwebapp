@@ -11,18 +11,17 @@
     </head>
     <body>
         <% 
-            String uname=request.getParameter("uname");
-            String pass=request.getParameter("psw");
-            String name=(String)session.getAttribute("txtFName");
-            String email=(String)session.getAttribute("txtEmail");
-            String password=(String)session.getAttribute("txtpassword");
-            String  mnumber=(String)session.getAttribute("num");
+            String name=request.getParameter("txtFName");
+            String email=request.getParameter("txtEmail");
+          
            
+            String password=request.getParameter("txtpassword");
+            String  mnumber=request.getParameter("num");
            
             String url="jdbc:mysql://localhost:3306/yollo";
             Class.forName("com.mysql.jdbc.Driver");
             Connection conn =DriverManager.getConnection(url,"root","");
-            String query="insert into userdetail values('"+uname+"','"+email+"','"+password+"',"+mnumber+")";
+            String query="insert into userdetail values('"+name+"','"+email+"','"+password+"',"+mnumber+")";
             out.println(query);
             Statement st=conn.createStatement();
             int q=st.executeUpdate(query);
@@ -34,8 +33,9 @@
             {
                out.println("row has not been inserted");
             }
-            st.close(); 
-        
-        %>
+            st.close();
+        %>;',d'd,;aw,d'a;wd,aw;
+         <p><a href="newindexpage.html">click to go to the home page</a></p>
+      
     </body>
 </html>

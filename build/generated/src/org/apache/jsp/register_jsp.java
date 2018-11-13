@@ -3,6 +3,9 @@ package org.apache.jsp;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
+import java.util.*;
+import java.lang.*;
+import java.sql.*;
 
 public final class register_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
@@ -30,7 +33,7 @@ public final class register_jsp extends org.apache.jasper.runtime.HttpJspBase
     PageContext _jspx_page_context = null;
 
     try {
-      response.setContentType("text/html; charset=ISO-8859-1");
+      response.setContentType("text/html;charset=UTF-8");
       pageContext = _jspxFactory.getPageContext(this, request, response,
       			null, true, 8192, true);
       _jspx_page_context = pageContext;
@@ -42,9 +45,14 @@ public final class register_jsp extends org.apache.jasper.runtime.HttpJspBase
       _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
 
       out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
       out.write("<html>\n");
       out.write("<head>\n");
-      out.write("<title>SignUp/MediCare.com</title>\n");
+      out.write("<title></title>\n");
       out.write("<link rel=\"shortcut icon\" href=\"1.ico\">\n");
       out.write("<style>\n");
       out.write(".parent {\n");
@@ -156,26 +164,33 @@ public final class register_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("<div class=\"parent\">\n");
       out.write("\n");
       out.write("\n");
-      out.write("<form class=\"forml\" name=\"registration\" action=\"RegServlet\" method=\"post\">\n");
-      out.write("<input type=\"hidden\" name=\"pagename\" value=\"register\"/>\n");
+      out.write("<form class=\"forml\" action=\"regjsp.jsp\">\n");
+      out.write("\n");
       out.write("<table cellpadding=\"5\" cellspacing=\"5\">\n");
       out.write("<tr>\n");
-      out.write("<td style=\"font-size:20;\">Name:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type=\"text\" id=\"n\" name=\"txtFName\" size=\"39\" ></td>\n");
+      out.write("<td style=\"font-size:20;\">Name:<input type=\"text\" id=\"n\" name=\"txtFName\" size=\"39\" ></td>\n");
       out.write("</tr>\n");
       out.write("<tr>\n");
-      out.write("\t<td style=\"font-size:20;\">Gender:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type=\"radio\" name=\"rdoGender\" id=\"Male\" value=\"Male\"><label for=\"Male\">Male</label><input type=\"radio\" name=\"rdoGender\" id=\"Female\" value=\"Female\"><label for=\"Female\">Female</label></td>\n");
+      out.write("\t<td style=\"font-size:20;\"><input type=\"radio\" name=\"rdoGender\" id=\"Male\" value=\"Male\"><label for=\"Male\">Male</label><input type=\"radio\" name=\"rdoGender\" id=\"Female\" value=\"Female\"><label for=\"Female\">Female</label></td>\n");
       out.write("</tr>\n");
       out.write("<tr>\n");
-      out.write("<td style=\"font-size:20;\">Email:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type=\"email\" id=\"e\" name=\"txtEmail\" size=\"39\"> </td>\n");
+      out.write("<td style=\"font-size:20;\">Email:<input type=\"email\" id=\"e\" name=\"txtEmail\" size=\"39\"> </td>\n");
       out.write("</tr>\n");
       out.write("<tr>\n");
-      out.write("<td style=\"font-size:20;\">Password:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type=\"password\" id=\"p\" name=\"txtpassword\" size=\"39\"></td>\n");
+      out.write("<td style=\"font-size:20;\">Password:<input type=\"password\" id=\"p\" name=\"txtpassword\" size=\"39\"></td>\n");
+      out.write("</tr>\n");
+      out.write("\n");
+      out.write("<tr>\n");
+      out.write("<td style=\"font-size:20;\">Address:<br><textarea id=\"add\" type=\"text\" rows=\"5\" cols=\"41\" name=\"txtarAddress\"></textarea></td>\n");
+      out.write("</tr>\n");
+      out.write("<tr>\n");
+      out.write("<td style=\"font-size:20;\">Date of Birth:<input type=\"date\" id=\"da\" name=\"Age\" size=\"50\"></td>\n");
+      out.write("</tr>\n");
+      out.write("<tr>\n");
+      out.write("<td style=\"font-size:20;\"><input type=\"checkbox\" name=\"tac\" id=\"check\" checked>Agree to our terms and conditions?</td>\n");
       out.write("</tr>\n");
       out.write("<tr>\n");
       out.write("<td style=\"font-size:20;\">Mobile Number:<input type=\"text\" id=\"no\" name=\"num\" maxlength=10 size=\"39\"></td>\n");
-      out.write("</tr>\n");
-      out.write("<tr>\n");
-      out.write("\t<td style=\"font-size:20;\">State :&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp\n");
       out.write("\t<select name=\"cboStates\">\n");
       out.write("\t<option value=\"chandigarh\">chandigarh</option>\n");
       out.write("\t<option value=\"panchkula\">panchkula</option>\n");
@@ -183,21 +198,28 @@ public final class register_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t</select></td>\n");
       out.write("</tr>\n");
       out.write("<tr>\n");
-      out.write("<td style=\"font-size:20;\">Address:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<textarea id=\"add\" type=\"text\" rows=\"5\" cols=\"41\" name=\"txtarAddress\"></textarea></td>\n");
-      out.write("</tr>\n");
-      out.write("<tr>\n");
-      out.write("<td style=\"font-size:20;\">Date of Birth:&nbsp&nbsp&nbsp&nbsp<input type=\"date\" id=\"da\" name=\"dob\" size=\"50\"></td>\n");
-      out.write("</tr>\n");
-      out.write("<tr>\n");
-      out.write("<td style=\"font-size:20;\"><input type=\"checkbox\" name=\"tac\" id=\"check\" checked>Agree to our terms and conditions?</td>\n");
-      out.write("</tr>\n");
-      out.write("<tr>\n");
-      out.write("<td align=\"center\"><input type=\"submit\" value=\"Sign up\" style=\"height:2.5em;width:7em;\" onclick=\"func()\"></td>\n");
+      out.write("<td align=\"center\"><input type=\"submit\" value=\"Sign up\" style=\"height:2.5em;width:7em;\"></td>\n");
       out.write("</tr>\n");
       out.write("</table>\n");
-      out.write("<p style=\"font-size:20;\" align=\"center\"><a href=\"pro.html\">Already have an account</a></p>\n");
+      out.write("<p style=\"font-size:20;\" align=\"center\"><a href=\"indexpage.html\">Already have an account</a></p>\n");
       out.write("</form>\n");
       out.write("</div>\n");
+      out.write("       ");
+
+           
+            String txtFName=request.getParameter("txtFName");
+            String txtEmail=request.getParameter("txtEmail");
+            String txtpassword=request.getParameter("txtpassword");
+            String num=request.getParameter("num");
+              out.println(txtFName);
+           out.println(txtEmail);
+             session.setAttribute("txtFName", txtFName);
+            session.setAttribute("txtEmail",txtEmail);
+             session.setAttribute("txtpassword", txtpassword);
+            session.setAttribute("num", num);
+            
+      out.write("\n");
+      out.write("           \n");
       out.write("</body>\n");
       out.write("</html>");
     } catch (Throwable t) {
