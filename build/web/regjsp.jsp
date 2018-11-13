@@ -16,13 +16,13 @@
             String name=(String)session.getAttribute("txtFName");
             String email=(String)session.getAttribute("txtEmail");
             String password=(String)session.getAttribute("txtpassword");
-            String  mn=(String)session.getAttribute("num");
-            int mnumber=Integer.parseInt("mn");
+            String  mnumber=(String)session.getAttribute("num");
+           
            
             String url="jdbc:mysql://localhost:3306/yollo";
             Class.forName("com.mysql.jdbc.Driver");
             Connection conn =DriverManager.getConnection(url,"root","");
-            String query="insert into userdetail values('"+uname+"','"+email+"','"+password+"')";
+            String query="insert into userdetail values('"+uname+"','"+email+"','"+password+"',"+mnumber+")";
             out.println(query);
             Statement st=conn.createStatement();
             int q=st.executeUpdate(query);
