@@ -34,7 +34,7 @@
                out.println("row has not been inserted");
             }
             st.close();
-        %>;',d'd,;aw,d'a;wd,aw;
+        %>;
          <p><a href="newindexpage.html">click to go to the home page</a></p>
       
     </body>
