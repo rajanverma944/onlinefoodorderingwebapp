@@ -5,13 +5,42 @@
 <title></title>
 <link rel="shortcut icon" href="1.ico">
 <style>
+    ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover:not(.active) {
+    background-color: #111;
+}
+
+    form{
+        border:1px;
+        background-color: white;
+        
+    }
+    
 .parent {
  position: absolute;
+    width: 500px;
+    height: 250px;
 
-    width: 300px;
-    height: 300px;
-
-    /* Center form on page horizontally & vertically */
+   
     top: 50%;
     left: 50%;
     margin-top: -150px;
@@ -19,10 +48,11 @@
 }
 
 body{
-	 height:100%;
-  width:100%;
-  margin:0;
+	 background-image: url(images.gif);
+         background-repeat: no-repeat;
+         background-size: 1500px 800px;
 }
+
 input[type=text], select {
     width: 100%;
     padding: 12px 20px;
@@ -78,13 +108,12 @@ input[type=submit]:hover {
 .forml{
 
  left: 50%;
-    top: 50%;
+    top: 48%;
     position: absolute;
     -webkit-transform: translate3d(-50%, -50%, 0);
     -moz-transform: translate3d(-50%, -50%, 0);
     transform: translate3d(-50%, -50%, 0);
 }
-
 
 
 </style>
@@ -111,51 +140,43 @@ alert("check for your inputs/agree to our terms and conditions");
 </script>
 </head>
 <body>
+            <ul>
+          <li><a href="indexpage.jsp">Home</a></li>
+  <li><a href="shop.jsp">Menu</a></li>
+  <li><a href="#contact">Updates</a></li>
+  <li><a  href="AboutUs.html">About Us</a></li>
+ 
+
+</ul>
+    <br>
+     <br>
+      <br>
 <div class="parent">
 
 
-<form class="forml" action="regjsp.jsp">
+    <center><form class="forml" action="regjsp.jsp">
 
-<table cellpadding="5" cellspacing="5">
-<tr>
-<td style="font-size:20;">Name:<input type="text" id="n" name="txtFName" size="39" ></td>
-</tr>
-<tr>
-	<td style="font-size:20;">Gender:<input type="radio" name="rdoGender" id="Male" value="Male"><label for="Male">Male</label><input type="radio" name="rdoGender" id="Female" value="Female"><label for="Female">Female</label></td>
-</tr>
-<tr>
-<td style="font-size:20;">Email:<input type="email" id="e" name="txtEmail" size="39"> </td>
-</tr>
-<tr>
-<td style="font-size:20;">Password:<input type="password" id="p" name="txtpassword" size="39"></td>
-</tr>
-<tr>
-<td style="font-size:20;">Mobile Number:<input type="text" id="no" name="num" maxlength=10 size="39"></td>
-</tr>
-<tr>
-	<td style="font-size:20;">State :
+Name:<input type="text" id="n" name="txtFName" size="39" >
+Gender:<input type="radio" name="rdoGender" id="Male" value="Male"><label for="Male">Male</label><input type="radio" name="rdoGender" id="Female" value="Female"><label for="Female">Female</label></td>
+<br>
+Email:<input type="email" id="e" name="txtEmail" size="39">
+Refer code:<input type="text" id="" name="refercode" size="39">
+Password:<input type="password" id="p" name="txtpassword" size="39">
+Mobile Number:<input type="text" id="no" name="num" maxlength=10 size="39">
+State :
 	<select name="cboStates">
 	<option value="chandigarh">chandigarh</option>
 	<option value="panchkula">panchkula</option>
 	<option value="mohali">mohali</option>
-	</select></td>
-</tr>
-<tr>
-<td style="font-size:20;"><textarea id="add" type="text" rows="5" cols="41" name="txtarAddress"></textarea></td>
-</tr>
-<tr>
-<td style="font-size:20;">Date of Birth:<input type="date" id="da" name="Age" size="50"></td>
-</tr>
-<tr>
-<td style="font-size:20;"><input type="checkbox" name="tac" id="check" checked>Agree to our terms and conditions?</td>
-</tr>
-<tr>
-<td align="center"><input type="submit" value="Sign up" style="height:2.5em;width:7em;"></td>
-</tr>
-</table>
+	</select>
+<textarea id="add" type="text" rows="5" cols="41" name="txtarAddress"></textarea></td>
+Date of Birth:<input type="date" id="da" name="Age" size="50">
+<input type="checkbox" name="tac" id="check" checked>
+<input type="submit" value="Sign up" style="height:2.5em;width:7em;">
 <p style="font-size:20;" align="center"><a href="indexpage.html">Already have an account</a></p>
-</form>
+<a href="regjsp.jsp"></a>
+        </form></center>
 </div>
-    
+    </div>
 </body>
 </html>

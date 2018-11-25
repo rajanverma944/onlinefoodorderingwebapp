@@ -1,0 +1,16 @@
+SMAP
+menupage_jsp.java
+JSP
+*S JSP
+*F
++ 0 menupage.jsp
+menupage.jsp
+*L
+5,235:48
+240,15:284
+254,87:299
+341:386,3
+342:389
+343:390,3
+344,56:393
+*E
