@@ -92,7 +92,7 @@
                            float count=0;
            if(str!=null){
                for(int i=0;i<str.length;i++){
-                   st.executeQuery("select name,price from chandigarhrasoi where id="+str[i]+"");
+                   st.executeQuery("select name,price from `pizza hut` where id="+str[i]+"");
                    rs=st.getResultSet();
                    while(rs.next()){
                        String nameVal=rs.getString("name");

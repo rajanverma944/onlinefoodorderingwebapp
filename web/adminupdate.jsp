@@ -41,7 +41,7 @@
             int q=ps.executeUpdate(); 
             if(q>0)
             {
-                RequestDispatcher rd=request.getRequestDispatcher("menupage.jsp");
+                RequestDispatcher rd=request.getRequestDispatcher("newindexpagejsp.jsp");
                 
                 rd.forward(request,response);
                 

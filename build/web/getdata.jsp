@@ -72,9 +72,9 @@
            String url="jdbc:mysql://localhost:3306/restraunt";
             Class.forName("com.mysql.jdbc.Driver");
             Connection con =DriverManager.getConnection(url,"root","");
-           Statement st=con.createStatement();
-           ResultSet rs;
-             String[] str;
+            Statement st=con.createStatement();   
+       ResultSet rs;
+            String[] str;
            str=request.getParameterValues("chk1");
 
             %>
@@ -96,13 +96,17 @@
                    rs=st.getResultSet();
                    while(rs.next()){
                        String nameVal=rs.getString("name");
+                       
+session.setAttribute("name",nameVal);
                        int c=rs.getInt("price");
-           
+           session.setAttribute("price",c);
                sum+=c;
                System.out.print(sum);
                int q=1;
                count++;
+             
                         %>
+                        
                         <tr>
                             <td><%out.print( rs.getString("name"));%></td> 
                             <td><%out.print(rs.getInt("price"));%></td> 
@@ -118,7 +122,7 @@
                             <td><img src="paywith.png" width="210" height="80" /></td></tr>
                         <%
            } session.setAttribute("psum",sum);
-       %>
+   %>
                     </table>
                 </div>
                

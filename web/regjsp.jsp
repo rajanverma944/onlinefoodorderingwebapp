@@ -35,7 +35,7 @@ System.out.println(n);
             Class.forName("com.mysql.jdbc.Driver");
             Connection conn =DriverManager.getConnection(url,"root","");
             String query="insert into userdetail values('"+name+"','"+email+"','"+password+"',"+mnumber+","+y+")";
-            out.println(query);
+           
             Statement st=conn.createStatement();   
             int q=st.executeUpdate(query);    
             if(q>0)

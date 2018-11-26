@@ -3,7 +3,8 @@
     Created on : Jun 8, 2013, 12:14:15 PM
     Author     : Dilukshan Mahendra
 --%>
-
+<%@page import="java.util.*"%>
+<%@page import="java.sql.*"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
@@ -59,9 +60,17 @@
     </head>
 
     <body style="margin:0; padding:0">
-      
+      <%
+            String url="jdbc:mysql://localhost:3306/restraunt";
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con =DriverManager.getConnection(url,"root","");
+            Statement st=con.createStatement();   
+         
+            String query="insert into orderdetail values('"+(String)session.getAttribute("uname")+"','"+(String)session.getAttribute("name")+"',"+Integer.parseInt(session.getAttribute("price").toString())+","+Double.parseDouble(session.getAttribute("psum").toString())+")";
+ int y=st.executeUpdate(query);
+      %>
         
-        <form action="menupage.jsp" method="post">
+        <form action="newindexpagejsp.jsp" method="post">
             <div class="container">
 
                 <div class="headbanner">

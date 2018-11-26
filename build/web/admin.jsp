@@ -92,7 +92,7 @@ input[type=submit] {
     
  <body>
       <div class="topnav">
-            <a href="newindexpage.jsp">Home</a> 
+            <a href="newindexpagejsp.jsp">Home</a> 
             <a href="menupage.jsp">Menu</a>
             <a href="">Updates</a>
             <a href="AboutUs.html">About Us</a>

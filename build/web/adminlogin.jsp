@@ -16,12 +16,10 @@
         <%
              String username = (String) request.getParameter("uname");
         String password = (String) request.getParameter("pass");
-
         if (password.equals("1234")) {
             HttpSession mysession = request.getSession();
-            mysession.setAttribute("user", username);
+            mysession.setAttribute("uname", username);
            
- 
             response.sendRedirect("admin.jsp");
         }else{
         

@@ -229,7 +229,7 @@ ul, ol {
     
 
           <div class="topnav">
-            <a href="newindexpage.jsp">Home</a> 
+            <a href="newindexpagejsp.jsp">Home</a> 
             <a href="menupageph.jsp">Menu</a>
             <a href="">Updates</a>
             <a href="AboutUs.html">About Us</a>
@@ -244,43 +244,44 @@ ul, ol {
              HttpSession s=request.getSession();
                String pid=(String)session.getAttribute("id");
             
-         String query="select name,price from `pizza hut` where id="+pid+"";
-        PreparedStatement ps=(PreparedStatement)conn.prepareStatement("SELECT * from chandigarhrasoi");
+         
+        PreparedStatement ps=(PreparedStatement)conn.prepareStatement("SELECT * from `pizza hut` ");
        ResultSet r=ps.executeQuery();
        Statement st=conn.createStatement();
-            ResultSet rs=st.executeQuery(query);
+     //       ResultSet rs=st.executeQuery(query);
    r.next();
-rs.next();
+//rs.next();
 
       %>
       
      
-        <form action="getdata.jsp" method="post">  
+        <form action="getdata1.jsp" method="post">  
      
    <div style="margin-left: 30vw;margin-top: 3vw;">
 
       <table cellspacing="30vw;">
 <tr>
 
-<td><img src="download.jpg" class="img12"><br><div style="margin-left:0.3vw;margin-top: 0.2vw;">Plain Khoya Burfi(Per Kg)</div><div style="margin-left:0.3vw;margin-top: 0.2vw;color:#969EAB;font-size: 0.9vw;">Sweets</div><div style="margin-left:0.3vw;margin-top: 0.2vw;color:#969EAB;font-size: 1.0vw;">Rs. 300 <button type="submit" style="display:inline-block;background: transparent;border:1px solid;border-color: orange;color: orange;margin-left: 7vw;">ADD</button><input type="checkbox" name="chk1" value="1" onchange="update_value(this);"></div></td>
 
-<td><img src="besan.jpg" class="img12"><br><div style="margin-left:0.3vw;margin-top: 0.2vw;"></div>Besan Ladoo(Per Kg)<div style="margin-left:0.3vw;margin-top: 0.2vw;color:#969EAB;font-size: 0.9vw;">Sweets</div><div style="margin-left:0.3vw;margin-top: 0.2vw;color:#969EAB;font-size: 1.0vw;">Rs. 160 <button type="submit" style="display:inline-block;background: transparent;border:1px solid;border-color: orange;color: orange;margin-left: 7vw;">ADD</button><input type="checkbox" name="chk1" value="2" onchange="update_value(this);"></div></td>
+<td><img src="paneer.JPG" class="img12"><br><div style="margin-left:0.3vw;margin-top: 0.2vw;">Paneer Soya Supreme</div><div style="margin-left:0.3vw;margin-top: 0.2vw;color:#969EAB;font-size: 0.9vw;">pizza</div><div style="margin-left:0.3vw;margin-top: 0.2vw;color:#969EAB;font-size: 1.0vw;">Rs. 545<button type="submit" style="display:inline-block;background: transparent;border:1px solid;border-color: orange;color: orange;margin-left: 7vw;">ADD</button><input type="checkbox" name="chk1" value="1" onchange="update_value(this);"></div></td>
 
-</tr>
-
-<tr>
-
-<td><img src="moong.png" class="img12"><br><div style="margin-left:0.3vw;margin-top: 0.2vw;">Moong Dal Burfi(Per Kg)</div><div style="margin-left:0.3vw;margin-top: 0.2vw;color:#969EAB;font-size: 0.9vw;">Sweets</div><div style="margin-left:0.3vw;margin-top: 0.2vw;color:#969EAB;font-size: 1.0vw;">Rs. 400 <button type="submit" style="display:inline-block;background: transparent;border:1px solid;border-color: orange;color: orange;margin-left: 7vw;">ADD</button><input type="checkbox" name="chk1" value="3" onchange="update_value(this);"></div></td>
-
-<td><img src="gulab.jpg" class="img12"><br><div style="margin-left:0.3vw;margin-top: 0.2vw;">Gulabjamun(Per Kg)</div><div style="margin-left:0.3vw;margin-top: 0.2vw;color:#969EAB;font-size: 0.9vw;">Sweets</div><div style="margin-left:0.3vw;margin-top: 0.2vw;color:#969EAB;font-size: 1.0vw;">Rs. 160 <button type="submit" style="display:inline-block;background: transparent;border:1px solid;border-color: orange;color: orange;margin-left: 7vw;">ADD</button><input type="checkbox" name="chk1" value="4" onchange="update_value(this);"></div></td>
+<td><img src="veg.JPG" class="img12"><br><div style="margin-left:0.3vw;margin-top: 0.2vw;"></div>Veg Exotica<div style="margin-left:0.3vw;margin-top: 0.2vw;color:#969EAB;font-size: 0.9vw;">pizza</div><div style="margin-left:0.3vw;margin-top: 0.2vw;color:#969EAB;font-size: 1.0vw;">Rs. 545 <button type="submit" style="display:inline-block;background: transparent;border:1px solid;border-color: orange;color: orange;margin-left: 7vw;">ADD</button><input type="checkbox" name="chk1" value="2" onchange="update_value(this);"></div></td>
 
 </tr>
 
 <tr>
 
-<td><img src="Milk.jpg" class="img12"><br><div style="margin-left:0.3vw;margin-top: 0.2vw;">Milk cake(Per Kg)</div><div style="margin-left:0.3vw;margin-top: 0.2vw;color:#969EAB;font-size: 0.9vw;">Sweets</div><div style="margin-left:0.3vw;margin-top: 0.2vw;color:#969EAB;font-size: 1.0vw;">Rs. 360 <button type="submit" style="display:inline-block;background: transparent;border:1px solid;border-color: orange;color: orange;margin-left: 7vw;">ADD</button><input type="checkbox" name="chk1" value="5" onchange="update_value(this);"></div></td>
+<td><img src="vegitalino.JPG" class="img12"><br><div style="margin-left:0.3vw;margin-top: 0.2vw;">Veggie Italiano</div><div style="margin-left:0.3vw;margin-top: 0.2vw;color:#969EAB;font-size: 0.9vw;">pizza</div><div style="margin-left:0.3vw;margin-top: 0.2vw;color:#969EAB;font-size: 1.0vw;">Rs. 545 <button type="submit" style="display:inline-block;background: transparent;border:1px solid;border-color: orange;color: orange;margin-left: 7vw;">ADD</button><input type="checkbox" name="chk1" value="3" onchange="update_value(this);"></div></td>
 
-<td><img src="jalebi.jpg" class="img12"><br><div style="margin-left:0.3vw;margin-top: 0.2vw;">Jalebi(250 gms)</div><div style="margin-left:0.3vw;margin-top: 0.2vw;color:#969EAB;font-size: 0.9vw;">Sweets</div><div style="margin-left:0.3vw;margin-top: 0.2vw;color:#969EAB;font-size: 1.0vw;">Rs. 45 <button type="submit" style="display:inline-block;background: transparent;border:1px solid;border-color: orange;color: orange;margin-left: 7vw;">ADD</button><input type="checkbox" name="chk1" value="6" onchange="update_value(this);"></div></td>
+<td><img src="vegsupreme.JPG" class="img12"><br><div style="margin-left:0.3vw;margin-top: 0.2vw;">Veggie Supreme</div><div style="margin-left:0.3vw;margin-top: 0.2vw;color:#969EAB;font-size: 0.9vw;">pizza</div><div style="margin-left:0.3vw;margin-top: 0.2vw;color:#969EAB;font-size: 1.0vw;">Rs. 545 <button type="submit" style="display:inline-block;background: transparent;border:1px solid;border-color: orange;color: orange;margin-left: 7vw;">ADD</button><input type="checkbox" name="chk1" value="4" onchange="update_value(this);"></div></td>
+
+</tr>
+
+<tr>
+
+<td><img src="chikenexotica.JPG" class="img12"><br><div style="margin-left:0.3vw;margin-top: 0.2vw;">Chicken Exotica</div><div style="margin-left:0.3vw;margin-top: 0.2vw;color:#969EAB;font-size: 0.9vw;">pizza</div><div style="margin-left:0.3vw;margin-top: 0.2vw;color:#969EAB;font-size: 1.0vw;">Rs. 625 <button type="submit" style="display:inline-block;background: transparent;border:1px solid;border-color: orange;color: orange;margin-left: 7vw;">ADD</button><input type="checkbox" name="chk1" value="5" onchange="update_value(this);"></div></td>
+
+<td><img src="chikenitalino.JPG" class="img12"><br><div style="margin-left:0.3vw;margin-top: 0.2vw;">Chicken Italiano</div><div style="margin-left:0.3vw;margin-top: 0.2vw;color:#969EAB;font-size: 0.9vw;">pizza</div><div style="margin-left:0.3vw;margin-top: 0.2vw;color:#969EAB;font-size: 1.0vw;">Rs. 625 <button type="submit" style="display:inline-block;background: transparent;border:1px solid;border-color: orange;color: orange;margin-left: 7vw;">ADD</button><input type="checkbox" name="chk1" value="6" onchange="update_value(this);"></div></td>
 
 </tr>
 
@@ -290,58 +291,45 @@ rs.next();
 
 <hr style="margin-left: 18vw;margin-right: 18vw;">
 
-<div><h1 style="margin-left:30vw;">Sweets</h1></div>
+<div><h1 style="margin-left:30vw;">PIZZA</h1></div>
 
 <div style="margin-left:30vw;">
 
-<div style="margin-top: 0.2vw;font-size: 1.2vw;">narial ki barfi<button type="submit" style="display:inline-block;background: transparent;border:1px solid;border-color: orange;color: orange;margin-right:33vw; float: right;">ADD</button><input type="checkbox" name="chk1" value="7" onchange="update_value(this);" style="display:inline-block;margin-right:31vw; float: right;">
+<div style="margin-top: 0.2vw;font-size: 1.2vw;">Chicken Supreme<button type="submit" style="display:inline-block;background: transparent;border:1px solid;border-color: orange;color: orange;margin-right:33vw; float: right;">ADD</button><input type="checkbox" name="chk1" value="7" onchange="update_value(this);" style="display:inline-block;margin-right:31vw; float: right;">
 
-<br><div style="margin-left:0.3vw;margin-top: 0.2vw;color:#969EAB;font-size: 1.0vw;">Rs. 100</div></div></div>
+<br><div style="margin-left:0.3vw;margin-top: 0.2vw;color:#969EAB;font-size: 1.0vw;">Rs. 625</div></div></div>
 
 <hr style="margin-left: 28vw;margin-right: 28vw;">
 
 <div style="margin-left:30vw;">
 
-<div style="margin-top: 0.2vw;font-size: 1.2vw;">Kesar Ladoo (Per kg)<button type="submit" style="display:inline-block;background: transparent;border:1px solid;border-color: orange;color: orange;margin-right:33vw; float: right;">ADD</button><input type="checkbox" name="chk1" value="8" onchange="update_value(this);"style="display:inline-block;margin-right:31vw; float: right";>
+<div style="margin-top: 0.2vw;font-size: 1.2vw;">Triple Chicken Feast<button type="submit" style="display:inline-block;background: transparent;border:1px solid;border-color: orange;color: orange;margin-right:33vw; float: right;">ADD</button><input type="checkbox" name="chk1" value="8" onchange="update_value(this);"style="display:inline-block;margin-right:31vw; float: right";>
 
-<br><div style="margin-left:0.3vw;margin-top: 0.2vw;color:#969EAB;font-size: 1.0vw;">Rs. 160</div></div></div>
-
-<hr style="margin-left: 28vw;margin-right: 28vw;">
-
-<div style="margin-left:30vw;">
-
-<div style="margin-top: 0.2vw;font-size: 1.2vw;">Plain Patisa (Per kg)<button type="submit" style="display:inline-block;background: transparent;border:1px solid;border-color: orange;color: orange;margin-right:33vw; float: right;">ADD</button><input type="checkbox" name="chk1" value="9" onchange="update_value(this);"style="display:inline-block;margin-right:31vw; float: right";>
-
-<br><div style="margin-left:0.3vw;margin-top: 0.2vw;color:#969EAB;font-size: 1.0vw;">Rs. 200</div></div></div>
+<br><div style="margin-left:0.3vw;margin-top: 0.2vw;color:#969EAB;font-size: 1.0vw;">Rs. 625</div></div></div>
 
 <hr style="margin-left: 28vw;margin-right: 28vw;">
 
 <div style="margin-left:30vw;">
 
-<div style="margin-top: 0.2vw;font-size: 1.2vw;">Kalakand (Per kg)<button type="submit" style="display:inline-block;background: transparent;border:1px solid;border-color: orange;color: orange;margin-right:33vw; float: right;">ADD</button><input type="checkbox" name="chk1" value="10" onchange="update_value(this);"style="display:inline-block;margin-right:31vw; float: right";>
+<div style="margin-top: 0.2vw;font-size: 1.2vw;">Country Feast<button type="submit" style="display:inline-block;background: transparent;border:1px solid;border-color: orange;color: orange;margin-right:33vw; float: right;">ADD</button><input type="checkbox" name="chk1" value="9" onchange="update_value(this);"style="display:inline-block;margin-right:31vw; float: right";>
 
-<br><div style="margin-left:0.3vw;margin-top: 0.2vw;color:#969EAB;font-size: 1.0vw;">Rs. 400</div></div></div>
-
-<hr style="margin-left: 28vw;margin-right: 28vw;">
-
-<div style="margin-left:30vw;">
-
-<div style="margin-top: 0.2vw;font-size: 1.2vw;">Rasgulla (Per kg)<button type="submit" style="display:inline-block;background: transparent;border:1px solid;border-color: orange;color: orange;margin-right:33vw; float: right;">ADD</button><input type="checkbox" name="chk1" value="11" onchange="update_value(this);"style="display:inline-block;margin-right:31vw; float: right";>
-
-<br><div style="margin-left:0.3vw;margin-top: 0.2vw;color:#969EAB;font-size: 1.0vw;">Rs. 180</div></div></div>
+<br><div style="margin-left:0.3vw;margin-top: 0.2vw;color:#969EAB;font-size: 1.0vw;">Rs. 515</div></div></div>
 
 <hr style="margin-left: 28vw;margin-right: 28vw;">
 
 <div style="margin-left:30vw;">
 
-<div style="margin-top: 0.2vw;font-size: 1.2vw;">Rasbari (Per kg)<button type="submit" style="display:inline-block;background: transparent;border:1px solid;border-color: orange;color: orange;margin-right:33vw; float: right;">ADD</button><input type="checkbox" name="chk1" value="12" onchange="update_value(this);"style="display:inline-block;margin-right:31vw; float: right";>
+<div style="margin-top: 0.2vw;font-size: 1.2vw;">Farmers Pick<button type="submit" style="display:inline-block;background: transparent;border:1px solid;border-color: orange;color: orange;margin-right:33vw; float: right;">ADD</button><input type="checkbox" name="chk1" value="10" onchange="update_value(this);"style="display:inline-block;margin-right:31vw; float: right";>
 
-<br><div style="margin-left:0.3vw;margin-top: 0.2vw;color:#969EAB;font-size: 1.0vw;">Rs. 300</div></div></div>
+<br><div style="margin-left:0.3vw;margin-top: 0.2vw;color:#969EAB;font-size: 1.0vw;">Rs. 515</div></div></div>
+
+<hr style="margin-left: 28vw;margin-right: 28vw;">
+
 
 <div style="margin-left:30vw;">
-<div style="margin-top: 0.2vw;font-size: 1.2vw;"><%out.println(rs.getString("name"));%><button type="submit" style="display:inline-block;background: transparent;border:1px solid;border-color: orange;color: orange;margin-right:33vw; float: right;">ADD</button><input type="checkbox" name="chk1" value="12" onchange="update_value(this);"style="display:inline-block;margin-right:31vw; float: right";>
+<div style="margin-top: 0.2vw;font-size: 1.2vw;"><%out.println(r.getString("name"));%><button type="submit" style="display:inline-block;background: transparent;border:1px solid;border-color: orange;color: orange;margin-right:33vw; float: right;">ADD</button><input type="checkbox" name="chk1" value="12" onchange="update_value(this);"style="display:inline-block;margin-right:31vw; float: right";>
 
-<br><div style="margin-left:0.3vw;margin-top: 0.2vw;color:#969EAB;font-size: 1.0vw;"><%out.println(rs.getString("price"));%></div></div></div>
+<br><div style="margin-left:0.3vw;margin-top: 0.2vw;color:#969EAB;font-size: 1.0vw;"><%out.println(r.getString("price"));%></div></div></div>
 <button type="submit" style="display:inline-block;background: transparent;border:1px solid;border-color: orange;color: orange;margin-right:33vw; float: right;">GO TO CART</button>
         </form>
 
