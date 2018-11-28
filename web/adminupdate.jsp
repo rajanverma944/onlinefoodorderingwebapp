@@ -31,7 +31,7 @@
             String url="jdbc:mysql://localhost:3306/restraunt";
             Class.forName("com.mysql.jdbc.Driver");
             Connection con =DriverManager.getConnection(url,"root","");
-           PreparedStatement ps=con.prepareStatement("insert into chandigarhrasoi values(?,?,?,?)"); 
+           PreparedStatement ps=con.prepareStatement("insert into beverages values(?,?,?,?)"); 
            ps.setString(1,pid);
              ps.setString(4,Cat);
             ps.setString(3,Price);

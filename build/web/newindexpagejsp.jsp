@@ -279,7 +279,7 @@ window.onclick = function(event) {
                 </tr>
                 <tr>
                     <td><img src="page-1_img06.jpg" class="img21"><br>Chandigarh Rasoi</td>
-                      <td><img src="slide02.jpg" class="img21"><br>Reboot Life</td>
+                      <td><img src="slide02.jpg" class="img21"><br>Reboot Life<a href="menupagebv.jsp"></a></td>
                 </tr>
             </table>
         </div>

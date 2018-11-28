@@ -260,6 +260,7 @@ window.onclick = function(event) {
   });
 </script>
 
+
            <img src="Heading_Image.gif" alt="Not available"></img><br><br>
         <ul>
           <li><a href="#home">Home</a></li>

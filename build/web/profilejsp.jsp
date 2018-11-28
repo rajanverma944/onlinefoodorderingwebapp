@@ -121,8 +121,9 @@ ul, ol {
             <a href="menupage.jsp">Menu</a>
             <a href="">Updates</a>
             <a href="AboutUs.html">About Us</a>
+             <a href="logout.jsp">Log Out</a>
              <li><a href="profilejsp.jsp"><% out.println((String)session.getAttribute("uname")); %></a></li>
-            <a href="logout.jsp">Log Out</a>
+           
        </div> 
 <div class="container emp-profile">
             <form method="post">
