@@ -15,7 +15,37 @@
         <link rel="stylesheet" type="text/css" media="all" href="StyleSheet.css"></link>
     </head>
     <body>
+       
     	<style>
+            .topnav {
+    background-color: #333;
+    overflow: hidden;
+     position: fixed;
+      top: 0; /* Position the navbar at the top of the page */
+    width: 100%; /* Full width */
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+    background-color: #4CAF50;
+    color: white;
+}
 *{margin:0px; padding:0px; font-family:Helvetica, Arial, sans-serif;}
 .parallax {
     
@@ -145,7 +175,7 @@ li a:hover:not(.active) {
     text-align: center;
     padding: 19px 18px;
     text-decoration: none;
-    font-size: 22px;
+    font-size: 17px;
     font-weight: bold;
 }
 td:hover{
@@ -212,12 +242,6 @@ ul, ol {
 }
 
 </style>
-<div class="parallax"></div>
-
-<h1 style="text-align:center; font-size:50px; color:#fff">Find the best restaurants, cafés and bars in India</h1>
-
-
-
 <div id="modal-wrapper" class="modal">
   
   <form class="modal-content animate" action="loginjsp.jsp">
@@ -242,6 +266,22 @@ ul, ol {
       
   
 </div>
+         <div class="topnav">
+            <a href="newindexpagejsp.jsp">Home</a> 
+            <a href="menupageph.jsp">Menu</a>
+            <a  href="admincheck.jsp">Admin login</a>
+            <a href="AboutUs.html">About Us</a>
+           
+            <a href="profilejsp.jsp">GUEST</a>
+            <div style="float: right;" onclick="document.getElementById('modal-wrapper').style.display='block'" class="active">Login</div>
+       </div>
+<div class="parallax"></div>
+
+<h1 style="text-align:center; font-size:50px; color:#fff">Find the best restaurants, cafés and bars in India</h1>
+
+
+
+
 
  <script language="javascript"> 
 
@@ -261,15 +301,7 @@ window.onclick = function(event) {
 </script>
 
 
-           <img src="Heading_Image.gif" alt="Not available"></img><br><br>
-        <ul>
-          <li><a href="#home">Home</a></li>
-  <li><a href="menupage.jsp">Menu</a></li>
-  <li><a href="#contact">Updates</a></li>
-  <li><a  href="AboutUs.html">About Us</a></li>
-  <li style="float: right;"><div onclick="document.getElementById('modal-wrapper').style.display='block'" class="active">Login</div></li>
-</ul>
-           <li><a  href="admincheck.jsp">Admin login</a></li>
+           <img src="Heading_Image.gif" alt="Not available"></img><br><br> 
            <br>
            <br>
             <br>

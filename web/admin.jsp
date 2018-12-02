@@ -131,7 +131,12 @@ category: <br>
 <OPTION>sea food
 
 </SELECT>
-
+Restraunt: <br>
+<SELECT name="res">
+<OPTION>beverages
+<OPTION>chandigarhrasoi
+<OPTION>`pizza hut`
+</SELECT>
 
 <br> <br>
 <input type="submit" name="submit" value="add">

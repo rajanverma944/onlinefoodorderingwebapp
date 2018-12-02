@@ -272,11 +272,14 @@ public final class menupage_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("    \n");
       out.write("\n");
       out.write("          <div class=\"topnav\">\n");
-      out.write("            <a href=\"indexpage.jsp\">Home</a> \n");
+      out.write("            <a href=\"newindexpagejsp.jsp\">Home</a> \n");
       out.write("            <a href=\"menupage.jsp\">Menu</a>\n");
       out.write("            <a href=\"\">Updates</a>\n");
       out.write("            <a href=\"AboutUs.html\">About Us</a>\n");
-      out.write("            <li><a><div id=\"wish\" >Cart: Empty</div></a></li>\n");
+      out.write("             <li><a href=\"profilejsp.jsp\">");
+ String name=(String)session.getAttribute("uname"); out.println(name); 
+      out.write("</a></li>\n");
+      out.write("            <li><a  style=\"color:whitesmoke;\"><div id=\"wish\" >Cart: Empty</div></a></li>\n");
       out.write("       </div>\n");
       out.write("        \n");
       out.write("    ");
@@ -287,6 +290,10 @@ public final class menupage_jsp extends org.apache.jasper.runtime.HttpJspBase
             Connection conn =DriverManager.getConnection(url,"root","");
              HttpSession s=request.getSession();
                String pid=(String)session.getAttribute("id");
+                if(pid==null)
+            {
+                pid="10";
+            }
          String query="select name,price from chandigarhrasoi where id="+pid+"";
         PreparedStatement ps=(PreparedStatement)conn.prepareStatement("SELECT * from chandigarhrasoi");
        ResultSet r=ps.executeQuery();

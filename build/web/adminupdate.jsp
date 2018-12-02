@@ -20,7 +20,10 @@
             String name=request.getParameter("name");
                String pid=request.getParameter("id");
          HttpSession s=request.getSession();
+         String restraunt=request.getParameter("res");
+         out.println(restraunt);
               s.setAttribute("id",pid);
+                s.setAttribute("res",restraunt);
             String pass=request.getParameter("photo");
             String Price=request.getParameter("price");
             String Cat=request.getParameter("cat");
@@ -31,7 +34,7 @@
             String url="jdbc:mysql://localhost:3306/restraunt";
             Class.forName("com.mysql.jdbc.Driver");
             Connection con =DriverManager.getConnection(url,"root","");
-           PreparedStatement ps=con.prepareStatement("insert into beverages values(?,?,?,?)"); 
+           PreparedStatement ps=con.prepareStatement("insert into "+restraunt+" values(?,?,?,?)"); 
            ps.setString(1,pid);
              ps.setString(4,Cat);
             ps.setString(3,Price);

@@ -21,6 +21,14 @@
         <link rel="stylesheet" type="text/css" media="all" href="StyleSheet.css"></link>
     </head>
     <body>
+         <div class="topnav">
+            <a href="newindexpagejsp.jsp">Home</a> 
+            <a href="menupageph.jsp">Menu</a>
+            <a  href="admincheck.jsp">Admin login</a>
+            <a href="AboutUs.html">About Us</a>
+            <a  href="logout.jsp">LOG OUT</a>
+            <a href="profilejsp.jsp"><% String name=(String)session.getAttribute("uname"); out.println(name); %></a>
+       </div>
     	<style>
             
 *{
@@ -172,8 +180,37 @@ td:hover{
     width: 300px;
 }
 
+ .topnav {
+    background-color: #333;
+    overflow: hidden;
+     position: fixed;
+      top: 0; /* Position the navbar at the top of the page */
+    width: 100%; /* Full width */
+}
 
+/* Style the links inside the navigation bar */
+.topnav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+    background-color: #4CAF50;
+    color: white;
+}
 </style>
+
 <div class="parallax"></div>
 
 <h1 style="text-align:center; font-size:50px; color:#fff">Find the best restaurants, cafés and bars in India</h1>
@@ -239,15 +276,7 @@ window.onclick = function(event) {
 <br>
 <br>
         
-        <ul>
-          <li><a href="newindexpagejsp.jsp">Home</a></li>
-  <li><a href="menupageph.jsp">Menu</a></li>
-  <li><a  href="admincheck.jsp">Admin login</a></li>
-  <li><a  href="AboutUs.html">About Us</a></li>
-  <li><a href="profilejsp.jsp"><% String name=(String)session.getAttribute("uname"); out.println(name); %></a></li>
-    <li><a  href="logout.jsp">LOG OUT</a></li>
-</ul>
-         
+
            <br>
            <br>
             <br>

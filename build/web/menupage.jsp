@@ -71,6 +71,9 @@ ul, ol {
     .topnav {
     background-color: #333;
     overflow: hidden;
+    \ position: fixed;
+      top: 0; /* Position the navbar at the top of the page */
+    width: 100%; /* Full width */
 }
 
 /* Style the links inside the navigation bar */
@@ -233,8 +236,8 @@ ul, ol {
             <a href="menupage.jsp">Menu</a>
             <a href="">Updates</a>
             <a href="AboutUs.html">About Us</a>
-             <li><a href="profilejsp.jsp"><% String name=(String)session.getAttribute("uname"); out.println(name); %></a></li>
-            <li><a><div id="wish" >Cart: Empty</div></a></li>
+            <a href="profilejsp.jsp"><% String name=(String)session.getAttribute("uname"); out.println(name); %></a>
+            <li><a  style="color:whitesmoke;"><div id="wish" >Cart: Empty</div></a></li>
        </div>
         
     <%
@@ -244,6 +247,12 @@ ul, ol {
             Connection conn =DriverManager.getConnection(url,"root","");
              HttpSession s=request.getSession();
                String pid=(String)session.getAttribute("id");
+
+               
+                if(pid==null)
+            {
+                pid="5";
+            }
          String query="select name,price from chandigarhrasoi where id="+pid+"";
         PreparedStatement ps=(PreparedStatement)conn.prepareStatement("SELECT * from chandigarhrasoi");
        ResultSet r=ps.executeQuery();
@@ -302,17 +311,17 @@ rs.next();
 
 <div style="margin-left:30vw;">
 
-<div style="margin-top: 0.2vw;font-size: 1.2vw;">Kesar Ladoo (Per kg)<button type="submit" style="display:inline-block;background: transparent;border:1px solid;border-color: orange;color: orange;margin-right:33vw; float: right;">ADD</button><input type="checkbox" name="chk1" value="8" onchange="update_value(this);"style="display:inline-block;margin-right:31vw; float: right";>
+<div style="margin-top: 0.2vw;font-size: 1.2vw;">plain patisa (Per kg)<button type="submit" style="display:inline-block;background: transparent;border:1px solid;border-color: orange;color: orange;margin-right:33vw; float: right;">ADD</button><input type="checkbox" name="chk1" value="8" onchange="update_value(this);"style="display:inline-block;margin-right:31vw; float: right";>
 
-<br><div style="margin-left:0.3vw;margin-top: 0.2vw;color:#969EAB;font-size: 1.0vw;">Rs. 160</div></div></div>
+<br><div style="margin-left:0.3vw;margin-top: 0.2vw;color:#969EAB;font-size: 1.0vw;">Rs. 200</div></div></div>
 
 <hr style="margin-left: 28vw;margin-right: 28vw;">
 
 <div style="margin-left:30vw;">
 
-<div style="margin-top: 0.2vw;font-size: 1.2vw;">Plain Patisa (Per kg)<button type="submit" style="display:inline-block;background: transparent;border:1px solid;border-color: orange;color: orange;margin-right:33vw; float: right;">ADD</button><input type="checkbox" name="chk1" value="9" onchange="update_value(this);"style="display:inline-block;margin-right:31vw; float: right";>
+<div style="margin-top: 0.2vw;font-size: 1.2vw;">Kalakand (Per kg)<button type="submit" style="display:inline-block;background: transparent;border:1px solid;border-color: orange;color: orange;margin-right:33vw; float: right;">ADD</button><input type="checkbox" name="chk1" value="9" onchange="update_value(this);"style="display:inline-block;margin-right:31vw; float: right";>
 
-<br><div style="margin-left:0.3vw;margin-top: 0.2vw;color:#969EAB;font-size: 1.0vw;">Rs. 200</div></div></div>
+<br><div style="margin-left:0.3vw;margin-top: 0.2vw;color:#969EAB;font-size: 1.0vw;">Rs. 400</div></div></div>
 
 <hr style="margin-left: 28vw;margin-right: 28vw;">
 
@@ -326,20 +335,13 @@ rs.next();
 
 <div style="margin-left:30vw;">
 
-<div style="margin-top: 0.2vw;font-size: 1.2vw;">Rasgulla (Per kg)<button type="submit" style="display:inline-block;background: transparent;border:1px solid;border-color: orange;color: orange;margin-right:33vw; float: right;">ADD</button><input type="checkbox" name="chk1" value="11" onchange="update_value(this);"style="display:inline-block;margin-right:31vw; float: right";>
-
-<br><div style="margin-left:0.3vw;margin-top: 0.2vw;color:#969EAB;font-size: 1.0vw;">Rs. 180</div></div></div>
-
-<hr style="margin-left: 28vw;margin-right: 28vw;">
-
-<div style="margin-left:30vw;">
-
-<div style="margin-top: 0.2vw;font-size: 1.2vw;">Rasbari (Per kg)<button type="submit" style="display:inline-block;background: transparent;border:1px solid;border-color: orange;color: orange;margin-right:33vw; float: right;">ADD</button><input type="checkbox" name="chk1" value="12" onchange="update_value(this);"style="display:inline-block;margin-right:31vw; float: right";>
+<div style="margin-top: 0.2vw;font-size: 1.2vw;">Rasbari (Per kg)<button type="submit" style="display:inline-block;background: transparent;border:1px solid;border-color: orange;color: orange;margin-right:33vw; float: right;">ADD</button><input type="checkbox" name="chk1" value="11" onchange="update_value(this);"style="display:inline-block;margin-right:31vw; float: right";>
 
 <br><div style="margin-left:0.3vw;margin-top: 0.2vw;color:#969EAB;font-size: 1.0vw;">Rs. 300</div></div></div>
 
+<hr style="margin-left: 28vw;margin-right: 28vw;">
 <div style="margin-left:30vw;">
-<div style="margin-top: 0.2vw;font-size: 1.2vw;"><%out.println(rs.getString("name"));%><button type="submit" style="display:inline-block;background: transparent;border:1px solid;border-color: orange;color: orange;margin-right:33vw; float: right;">ADD</button><input type="checkbox" name="chk1" value="12" onchange="update_value(this);"style="display:inline-block;margin-right:31vw; float: right";>
+<div style="margin-top: 0.2vw;font-size: 1.2vw;"><%out.println(rs.getString("name"));%><button type="submit" style="display:inline-block;background: transparent;border:1px solid;border-color: orange;color: orange;margin-right:33vw; float: right;">ADD</button><input type="checkbox" name="chk1" value="<%out.println(pid);%>" onchange="update_value(this);"style="display:inline-block;margin-right:31vw; float: right";>
 
 <br><div style="margin-left:0.3vw;margin-top: 0.2vw;color:#969EAB;font-size: 1.0vw;"><%out.println(rs.getString("price"));%></div></div></div>
 <button type="submit" style="display:inline-block;background: transparent;border:1px solid;border-color: orange;color: orange;margin-right:33vw; float: right;">GO TO CART</button>

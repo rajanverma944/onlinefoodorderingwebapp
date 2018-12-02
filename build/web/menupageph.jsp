@@ -71,6 +71,9 @@ ul, ol {
     .topnav {
     background-color: #333;
     overflow: hidden;
+    position: fixed;
+      top: 0; /* Position the navbar at the top of the page */
+    width: 100%; /* Full width */
 }
 
 /* Style the links inside the navigation bar */
@@ -94,7 +97,10 @@ ul, ol {
     background-color: #4CAF50;
     color: white;
 }
-    
+  .content {
+  padding: 16px;
+  color:#ff0000;
+}  
     
      #imgs{
 	        position:relative;
@@ -233,7 +239,8 @@ ul, ol {
             <a href="menupageph.jsp">Menu</a>
             <a href="">Updates</a>
             <a href="AboutUs.html">About Us</a>
-            <li><a><div id="wish" >Cart: Empty</div></a></li>
+                         <a href="profilejsp.jsp"><% String name=(String)session.getAttribute("uname"); out.println(name); %></a>
+            <li><a  style="color:whitesmoke;"><div id="wish" >Cart: Empty</div></a></li>
        </div>
         
     <%
@@ -243,14 +250,19 @@ ul, ol {
             Connection conn =DriverManager.getConnection(url,"root","");
              HttpSession s=request.getSession();
                String pid=(String)session.getAttribute("id");
-            
-         
+        
+            if(pid==null)
+            {
+                pid="5";
+            }
+            out.println(pid);
+              String query="select name,price from `pizza hut` where id="+pid+"";
         PreparedStatement ps=(PreparedStatement)conn.prepareStatement("SELECT * from `pizza hut` ");
        ResultSet r=ps.executeQuery();
        Statement st=conn.createStatement();
-     //       ResultSet rs=st.executeQuery(query);
+       ResultSet rs=st.executeQuery(query);
    r.next();
-//rs.next();
+rs.next();
 
       %>
       
@@ -263,25 +275,25 @@ ul, ol {
 <tr>
 
 
-<td><img src="paneer.JPG" class="img12"><br><div style="margin-left:0.3vw;margin-top: 0.2vw;">Paneer Soya Supreme</div><div style="margin-left:0.3vw;margin-top: 0.2vw;color:#969EAB;font-size: 0.9vw;">pizza</div><div style="margin-left:0.3vw;margin-top: 0.2vw;color:#969EAB;font-size: 1.0vw;">Rs. 545<button type="submit" style="display:inline-block;background: transparent;border:1px solid;border-color: orange;color: orange;margin-left: 7vw;">ADD</button><input type="checkbox" name="chk1" value="1" onchange="update_value(this);"></div></td>
+<td><img src="paneer.JPG" class="img12"><br><div style="margin-left:0.3vw;margin-top: 0.2vw;">Paneer Soya Supreme</div><div style="margin-left:0.3vw;margin-top: 0.2vw;color:w;font-size: 0.9vw;">pizza</div><div style="margin-left:0.3vw;margin-top: 0.2vw;color:w;font-size: 1.0vw;">Rs. 545<button type="submit" style="display:inline-block;background: transparent;border:1px solid;border-color: orange;color: orange;margin-left: 7vw;">ADD</button><input type="checkbox" name="chk1" value="1" onchange="update_value(this);"></div></td>
 
-<td><img src="veg.JPG" class="img12"><br><div style="margin-left:0.3vw;margin-top: 0.2vw;"></div>Veg Exotica<div style="margin-left:0.3vw;margin-top: 0.2vw;color:#969EAB;font-size: 0.9vw;">pizza</div><div style="margin-left:0.3vw;margin-top: 0.2vw;color:#969EAB;font-size: 1.0vw;">Rs. 545 <button type="submit" style="display:inline-block;background: transparent;border:1px solid;border-color: orange;color: orange;margin-left: 7vw;">ADD</button><input type="checkbox" name="chk1" value="2" onchange="update_value(this);"></div></td>
-
-</tr>
-
-<tr>
-
-<td><img src="vegitalino.JPG" class="img12"><br><div style="margin-left:0.3vw;margin-top: 0.2vw;">Veggie Italiano</div><div style="margin-left:0.3vw;margin-top: 0.2vw;color:#969EAB;font-size: 0.9vw;">pizza</div><div style="margin-left:0.3vw;margin-top: 0.2vw;color:#969EAB;font-size: 1.0vw;">Rs. 545 <button type="submit" style="display:inline-block;background: transparent;border:1px solid;border-color: orange;color: orange;margin-left: 7vw;">ADD</button><input type="checkbox" name="chk1" value="3" onchange="update_value(this);"></div></td>
-
-<td><img src="vegsupreme.JPG" class="img12"><br><div style="margin-left:0.3vw;margin-top: 0.2vw;">Veggie Supreme</div><div style="margin-left:0.3vw;margin-top: 0.2vw;color:#969EAB;font-size: 0.9vw;">pizza</div><div style="margin-left:0.3vw;margin-top: 0.2vw;color:#969EAB;font-size: 1.0vw;">Rs. 545 <button type="submit" style="display:inline-block;background: transparent;border:1px solid;border-color: orange;color: orange;margin-left: 7vw;">ADD</button><input type="checkbox" name="chk1" value="4" onchange="update_value(this);"></div></td>
+<td><img src="veg.JPG" class="img12"><br><div style="margin-left:0.3vw;margin-top: 0.2vw;"></div>Veg Exotica<div style="margin-left:0.3vw;margin-top: 0.2vw;color:w;font-size: 0.9vw;">pizza</div><div style="margin-left:0.3vw;margin-top: 0.2vw;color:w;font-size: 1.0vw;">Rs. 545 <button type="submit" style="display:inline-block;background: transparent;border:1px solid;border-color: orange;color: orange;margin-left: 7vw;">ADD</button><input type="checkbox" name="chk1" value="2" onchange="update_value(this);"></div></td>
 
 </tr>
 
 <tr>
 
-<td><img src="chikenexotica.JPG" class="img12"><br><div style="margin-left:0.3vw;margin-top: 0.2vw;">Chicken Exotica</div><div style="margin-left:0.3vw;margin-top: 0.2vw;color:#969EAB;font-size: 0.9vw;">pizza</div><div style="margin-left:0.3vw;margin-top: 0.2vw;color:#969EAB;font-size: 1.0vw;">Rs. 625 <button type="submit" style="display:inline-block;background: transparent;border:1px solid;border-color: orange;color: orange;margin-left: 7vw;">ADD</button><input type="checkbox" name="chk1" value="5" onchange="update_value(this);"></div></td>
+<td><img src="vegitalino.JPG" class="img12"><br><div style="margin-left:0.3vw;margin-top: 0.2vw;">Veggie Italiano</div><div style="margin-left:0.3vw;margin-top: 0.2vw;color:w;font-size: 0.9vw;">pizza</div><div style="margin-left:0.3vw;margin-top: 0.2vw;color:w;font-size: 1.0vw;">Rs. 545 <button type="submit" style="display:inline-block;background: transparent;border:1px solid;border-color: orange;color: orange;margin-left: 7vw;">ADD</button><input type="checkbox" name="chk1" value="3" onchange="update_value(this);"></div></td>
 
-<td><img src="chikenitalino.JPG" class="img12"><br><div style="margin-left:0.3vw;margin-top: 0.2vw;">Chicken Italiano</div><div style="margin-left:0.3vw;margin-top: 0.2vw;color:#969EAB;font-size: 0.9vw;">pizza</div><div style="margin-left:0.3vw;margin-top: 0.2vw;color:#969EAB;font-size: 1.0vw;">Rs. 625 <button type="submit" style="display:inline-block;background: transparent;border:1px solid;border-color: orange;color: orange;margin-left: 7vw;">ADD</button><input type="checkbox" name="chk1" value="6" onchange="update_value(this);"></div></td>
+<td><img src="vegsupreme.JPG" class="img12"><br><div style="margin-left:0.3vw;margin-top: 0.2vw;">Veggie Supreme</div><div style="margin-left:0.3vw;margin-top: 0.2vw;color:w;font-size: 0.9vw;">pizza</div><div style="margin-left:0.3vw;margin-top: 0.2vw;color:w;font-size: 1.0vw;">Rs. 545 <button type="submit" style="display:inline-block;background: transparent;border:1px solid;border-color: orange;color: orange;margin-left: 7vw;">ADD</button><input type="checkbox" name="chk1" value="4" onchange="update_value(this);"></div></td>
+
+</tr>
+
+<tr>
+
+<td><img src="chikenexotica.JPG" class="img12"><br><div style="margin-left:0.3vw;margin-top: 0.2vw;">Chicken Exotica</div><div style="margin-left:0.3vw;margin-top: 0.2vw;color:w;font-size: 0.9vw;">pizza</div><div style="margin-left:0.3vw;margin-top: 0.2vw;color:w;font-size: 1.0vw;">Rs. 625 <button type="submit" style="display:inline-block;background: transparent;border:1px solid;border-color: orange;color: orange;margin-left: 7vw;">ADD</button><input type="checkbox" name="chk1" value="5" onchange="update_value(this);"></div></td>
+
+<td><img src="chikenitalino.JPG" class="img12"><br><div style="margin-left:0.3vw;margin-top: 0.2vw;">Chicken Italiano</div><div style="margin-left:0.3vw;margin-top: 0.2vw;color:w;font-size: 0.9vw;">pizza</div><div style="margin-left:0.3vw;margin-top: 0.2vw;color:w;font-size: 1.0vw;">Rs. 625 <button type="submit" style="display:inline-block;background: transparent;border:1px solid;border-color: orange;color: orange;margin-left: 7vw;">ADD</button><input type="checkbox" name="chk1" value="6" onchange="update_value(this);"></div></td>
 
 </tr>
 
@@ -297,7 +309,7 @@ ul, ol {
 
 <div style="margin-top: 0.2vw;font-size: 1.2vw;">Chicken Supreme<button type="submit" style="display:inline-block;background: transparent;border:1px solid;border-color: orange;color: orange;margin-right:33vw; float: right;">ADD</button><input type="checkbox" name="chk1" value="7" onchange="update_value(this);" style="display:inline-block;margin-right:31vw; float: right;">
 
-<br><div style="margin-left:0.3vw;margin-top: 0.2vw;color:#969EAB;font-size: 1.0vw;">Rs. 625</div></div></div>
+<br><div style="margin-left:0.3vw;margin-top: 0.2vw;color:w;font-size: 1.0vw;">Rs. 625</div></div></div>
 
 <hr style="margin-left: 28vw;margin-right: 28vw;">
 
@@ -305,7 +317,7 @@ ul, ol {
 
 <div style="margin-top: 0.2vw;font-size: 1.2vw;">Triple Chicken Feast<button type="submit" style="display:inline-block;background: transparent;border:1px solid;border-color: orange;color: orange;margin-right:33vw; float: right;">ADD</button><input type="checkbox" name="chk1" value="8" onchange="update_value(this);"style="display:inline-block;margin-right:31vw; float: right";>
 
-<br><div style="margin-left:0.3vw;margin-top: 0.2vw;color:#969EAB;font-size: 1.0vw;">Rs. 625</div></div></div>
+<br><div style="margin-left:0.3vw;margin-top: 0.2vw;color:w;font-size: 1.0vw;">Rs. 625</div></div></div>
 
 <hr style="margin-left: 28vw;margin-right: 28vw;">
 
@@ -313,7 +325,7 @@ ul, ol {
 
 <div style="margin-top: 0.2vw;font-size: 1.2vw;">Country Feast<button type="submit" style="display:inline-block;background: transparent;border:1px solid;border-color: orange;color: orange;margin-right:33vw; float: right;">ADD</button><input type="checkbox" name="chk1" value="9" onchange="update_value(this);"style="display:inline-block;margin-right:31vw; float: right";>
 
-<br><div style="margin-left:0.3vw;margin-top: 0.2vw;color:#969EAB;font-size: 1.0vw;">Rs. 515</div></div></div>
+<br><div style="margin-left:0.3vw;margin-top: 0.2vw;color:w;font-size: 1.0vw;">Rs. 515</div></div></div>
 
 <hr style="margin-left: 28vw;margin-right: 28vw;">
 
@@ -321,15 +333,15 @@ ul, ol {
 
 <div style="margin-top: 0.2vw;font-size: 1.2vw;">Farmers Pick<button type="submit" style="display:inline-block;background: transparent;border:1px solid;border-color: orange;color: orange;margin-right:33vw; float: right;">ADD</button><input type="checkbox" name="chk1" value="10" onchange="update_value(this);"style="display:inline-block;margin-right:31vw; float: right";>
 
-<br><div style="margin-left:0.3vw;margin-top: 0.2vw;color:#969EAB;font-size: 1.0vw;">Rs. 515</div></div></div>
+<br><div style="margin-left:0.3vw;margin-top: 0.2vw;color:w;font-size: 1.0vw;">Rs. 515</div></div></div>
 
 <hr style="margin-left: 28vw;margin-right: 28vw;">
 
 
 <div style="margin-left:30vw;">
-<div style="margin-top: 0.2vw;font-size: 1.2vw;"><%out.println(r.getString("name"));%><button type="submit" style="display:inline-block;background: transparent;border:1px solid;border-color: orange;color: orange;margin-right:33vw; float: right;">ADD</button><input type="checkbox" name="chk1" value="12" onchange="update_value(this);"style="display:inline-block;margin-right:31vw; float: right";>
+<div style="margin-top: 0.2vw;font-size: 1.2vw;"><%out.println(rs.getString("name"));%><button type="submit" style="display:inline-block;background: transparent;border:1px solid;border-color: orange;color: orange;margin-right:33vw; float: right;">ADD</button><input type="checkbox" name="chk1" value="<%out.println(pid);%>" onchange="update_value(this);"style="display:inline-block;margin-right:31vw; float: right";>
 
-<br><div style="margin-left:0.3vw;margin-top: 0.2vw;color:#969EAB;font-size: 1.0vw;"><%out.println(r.getString("price"));%></div></div></div>
+<br><div style="margin-left:0.3vw;margin-top: 0.2vw;color:whitesmoke;font-size: 1.0vw;"><%out.println(rs.getString("price"));%></div></div></div>
 <button type="submit" style="display:inline-block;background: transparent;border:1px solid;border-color: orange;color: orange;margin-right:33vw; float: right;">GO TO CART</button>
         </form>
 
